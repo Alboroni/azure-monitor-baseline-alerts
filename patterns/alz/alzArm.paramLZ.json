@@ -18,7 +18,7 @@
       "value": "Connectivity"
     },
     "LandingZoneManagementGroup": {
-      "value": "LandingZones"
+      "value": "LandingZone"
     },
     "enableAMBAConnectivity": {
       "value": "Yes"
@@ -72,7 +72,7 @@
       "value": "id-amba-prod-001"
     },
     "managementSubscriptionId": {
-      "value": ""
+      "value": "0cefe216-ec0c-46f8-821b-f141d13f5c2a"
     },
     "ALZMonitorResourceGroupName": {
       "value": "rg-amba-monitoring-001"
@@ -97,7 +97,7 @@
       ]
     },
     "ALZMonitorActionGroupEmail": {
-      "value": []
+      "value": ["test@test.com"]
     },
     "ALZLogicappResourceId": {
       "value": ""
