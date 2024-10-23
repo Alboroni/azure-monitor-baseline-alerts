@@ -36,7 +36,7 @@
       "value": "Yes"
     },
     "enableAMBAHybridVM": {
-      "value": "No"
+      "value": "Yes"
     },
     "enableAMBAKeyManagement": {
       "value": "Yes"
