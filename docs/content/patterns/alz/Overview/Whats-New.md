@@ -6,23 +6,117 @@ weight: 09
 
 ### In this page
 
-> [2025-04-04](../Whats-New#2025-04-04) </br>
-> [2025-03-03](../Whats-New#2025-03-03) </br>
-> [2025-02-05](../Whats-New#2025-02-05) </br>
-> [2025-01-10](../Whats-New#2025-01-10) </br>
-> [2024-12-10](../Whats-New#2024-12-10) </br>
-> [2024-11-01](../Whats-New#2024-11-01) </br>
-> [2024-09-02](../Whats-New#2024-09-02) </br>
-> [2024-06-05](../Whats-New#2024-06-05) </br>
-> [2024-04-12](../Whats-New#2024-04-12) </br>
-> [2024-03-01](../Whats-New#2024-03-01) </br>
-> [2023-11-14](../Whats-New#2023-11-14) </br>
+> [2025-10-01](#2025-10-01) </br>
+> [2025-07-02](#2025-07-02) </br>
+> [2025-06-03](#2025-06-03) </br>
+> [2025-04-04](#2025-04-04) </br>
+> [2025-03-03](#2025-03-03) </br>
+> [2025-02-05](#2025-02-05) </br>
+> [2025-01-10](#2025-01-10) </br>
+> [2024-12-10](#2024-12-10) </br>
+> [2024-11-01](#2024-11-01) </br>
+> [2024-09-02](#2024-09-02) </br>
+> [2024-06-05](#2024-06-05) </br>
+> [2024-04-12](#2024-04-12) </br>
+> [2024-03-01](#2024-03-01) </br>
+> [2023-11-14](#2023-11-14) </br>
 
 For the latest updates, visit the [Releases](https://github.com/Azure/azure-monitor-baseline-alerts/releases) page.
 
 To update your deployment with the latest release, refer to the [Update to new releases](../../HowTo/UpdateToNewReleases) guide.
 
 To see what we have been and are working on, refer to the [AMBA Public Roadmap](https://aka.ms/amba/roadmap/alz) filtered for the ALZ pattern.
+
+## 2025-10-01
+
+### New Features
+
+- Adoption of the new least privileged "Monitoring Policy Contributor" built-in Azure role.
+- Adoption of the new built-in "[Preview]: Configure subscriptions to enable service health alert monitoring rule" policy. This change is following the AMBA-ALZ team effort to have the Service Health policy adopted as built-in policy.
+- Promoted the following preview policy to GA:
+  - [Preview]: Deploy Azure Monitor Baseline Alerts (AMBA-ALZ) - Activity Log Route Table Delete Alert
+  - [Preview]: Deploy Azure Monitor Baseline Alerts (AMBA-ALZ) - Activity Log Routes Delete Alert
+
+### Bug Fixes
+
+- Fixed [[#703](https://github.com/Azure/azure-monitor-baseline-alerts/issues/703)]: [General workload issue]: Policy definitions not showing as compliant.
+- Fixed [[#704](https://github.com/Azure/azure-monitor-baseline-alerts/issues/704)]: AMBA Connectivity2 compliance issue.
+
+### Documentation Updates
+
+- The documentation was update to help customers deploying the new AMBA-ALZ version adopting a least privileged role Managed Identities.
+
+### Tools
+
+- The maintenance script has been fixed to avoid crashes during role assignment removal. With this fix, the script is not failing or leaving role assignments in place anymore. It has been also enhanced to allow for:
+  - old Service Health alerts and action groups removal.
+  - role assignment removal.
+
+## 2025-07-02
+
+### New Features
+
+- No new features in this release.
+
+### Bug Fixes
+
+- Fixed [[#661](https://github.com/Azure/azure-monitor-baseline-alerts/issues/661)]: [General workload issue]: AMBA Management Initiative remediation.
+- Fixed [[#630](https://github.com/Azure/azure-monitor-baseline-alerts/issues/630)]: [General workload issue]: While upgrading AMBA to latest version I'm seeing Non-Compliant resources for VM, Connectivity and Notification Policies.
+- Fixed [[#672](https://github.com/Azure/azure-monitor-baseline-alerts/issues/672)]: [General workload issue]: Errors on Connectivity-2 Archetype Alert Deployments.
+
+### Documentation Updates
+
+- Added documentation to preview changes being deployed by AMBA-ALZ.
+
+### Tools
+
+- Unit-test to ensure alerts and policies tables are updated in line with changes.
+
+## 2025-06-03
+
+### New Features
+
+- Added the following new alerts to the Connectivity Initiative:
+  - [Preview]: Deploy Azure Monitor Baseline Alerts (AMBA-ALZ) - P2S Bandwidth Alert
+  - [Preview]: Deploy Azure Monitor Baseline Alerts (AMBA-ALZ) - User Vpn Route Count Alert
+  - [Preview]: Deploy Azure Monitor Baseline Alerts (AMBA-ALZ) - User Vpn Route Count Alert
+  - [Preview]: Deploy Azure Monitor Baseline Alerts (AMBA-ALZ) - Virtual Hubs Bgp Peer Status Alert
+  - [Preview]: Deploy Azure Monitor Baseline Alerts (AMBA-ALZ) - Count Of Routes Learned From Peer Alert
+  - [Preview]: Deploy Azure Monitor Baseline Alerts (AMBA-ALZ) - Virtual Hubs Count Of Routes Advertised To Peer Alert
+  - [Preview]: Deploy Azure Monitor Baseline Alerts (AMBA-ALZ) - Spoke VM Utilization Alert
+  - [Preview]: Deploy Azure Monitor Baseline Alerts (AMBA-ALZ) - Routing Infrastructure Units Alert
+  - [Preview]: Deploy Azure Monitor Baseline Alerts (AMBA-ALZ) - Virtual Hub Data Processed Alert
+  - [Preview]: Deploy Azure Monitor Baseline Alerts (AMBA-ALZ) - AFW ApplicationRuleHit Alert
+  - [Preview]: Deploy Azure Monitor Baseline Alerts (AMBA-ALZ) - Express Route Gateway Active Flows Alert
+  - [Preview]: Deploy Azure Monitor Baseline Alerts (AMBA-ALZ) - AFW NetworkRuleHit Alert
+
+### Bug Fixes
+
+- Fixed [[#642](https://github.com/Azure/azure-monitor-baseline-alerts/issues/642)]: [General workload issue]: PSD Alerting-LoadBalancing is missing param "Threshold" for Deploy_AG_UnhealthyHostCount_Alert.
+
+### Documentation Updates
+
+- Added the documentation to deploy AMBA-ALZ using Terraform.
+- Enhanced the consistency of display name of AMBA-ALZ policy definitions, policySet definitions and policy assignments. This enhancement will ease the search of AMBA-ALZ  items in the Azure Policy.
+- Alerts Details page has been updated with relevant content. Also the link to the policy definition code, is not pointing to the corresponding policy in [AzPolicyAdvertizer](https://www.azadvertizer.net/azpolicyadvertizer_all.html).
+- Deployment guides have been made clearer about the use and location of parameter file.
+- Deployment guides have been enhanced with steps to retrieve the following information used by the notification asset policy:
+  - Logic App resource id
+  - Logic App callback Url
+  - Event Hub resource id
+  - Function App resource id
+  - Function App trigger Url
+  - BYO Action Group resource id
+  - BYO Alert Processing Rule resource id
+
+- Policy Initiatives page has been update with relevant content.
+
+### Tools
+
+- The maintenance script has been fixed to resolve a bug causing infinite recursion on very significant environments. See the [[fix: The remove script causes infinite recursion](https://github.com/Azure/azure-monitor-baseline-alerts/pull/631/files)]
+- Internal unit test enhancement to check and enforce the following:
+  - Correct version change for both Policy definitions and policySet definitions
+  - Version parsing function to allow the check for version suffixes like *-preview* or *-deprecated*
 
 ## 2025-04-04
 
@@ -109,8 +203,8 @@ To see what we have been and are working on, refer to the [AMBA Public Roadmap](
   - Deploy Activity Log Application Insights Delete Alert (Preview)
   - Deploy Application Insights Throttling Limit Reached Alert (Preview)
 - Added new policies to create Alert rules for Route Table activity:
-  - [Preview] Deploy Activity Log Routes Delete Alert
-  - [Preview] Deploy Activity Log Route Table Delete Alert
+  - [Preview]: Deploy Activity Log Routes Delete Alert
+  - [Preview]: Deploy Activity Log Route Table Delete Alert
 - Alert Processing Rule flexibility: Alert Processing Rule policy now includes new parameters to specify which severities are including as a filter. By default the Alert Processing Rule includes all 5 severities from ***Sev0*** to ***Sev4***. Customer can leave the default values or remove the unnecessary ones to reduce the number of alerts that will be processed by the Alert Processing Rule
 
 ### Bug Fixes
